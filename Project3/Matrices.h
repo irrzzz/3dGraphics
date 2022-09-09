@@ -8,6 +8,8 @@ public:
 	static float rotationZ[4][4];
 	static float translation[4][4];
 	static float scaling[4][4];
+	//матрица перспективной проекции
+	//заменой proj[3][2]
 	static float proj[4][4];
 
 	static float* multiply(float vec[], float matrix[][4]);

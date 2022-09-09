@@ -42,22 +42,24 @@ float Figure::figure[34][4] = {
 };
 
 void Figure::draw() {
+	//дл€ проекции точки
 	float* projection = nullptr;
 	glPointSize(2);
+	//отрисовываем плоскую « на плоскости XoY
 	glBegin(GL_LINE_LOOP);
 	for (int i = 0; i < 17; i++) {
 		projection = Matrices::multiply(figure[i], Matrices::proj);
 		glVertex3f(projection[0], projection[1], projection[2]);
 	}
 	glEnd();
-
+	//на плоскости, параллельной XoY
 	glBegin(GL_LINE_LOOP);
 	for (int i = 17; i < 34; i++) {
 		projection = Matrices::multiply(figure[i], Matrices::proj);
 		glVertex3f(projection[0], projection[1], projection[2]);
 	}
 	glEnd();
-
+	//соедин€ем нарисованные плоские «
 	glBegin(GL_LINES);
 	for (int i = 0; i < 17; i++) {
 		projection = Matrices::multiply(figure[i], Matrices::proj);
@@ -75,6 +77,7 @@ void Figure::rotateX(float angle) {
 		for (int j = 0; j < 4; j++) {
 			figure[i][j] = res[j];
 		}
+		res = nullptr;
 	}
 }
 
@@ -85,6 +88,7 @@ void Figure::rotateY(float angle) {
 		for (int j = 0; j < 4; j++) {
 			figure[i][j] = res[j];
 		}
+		res = nullptr;
 	}
 }
 
@@ -95,6 +99,7 @@ void Figure::rotateZ(float angle) {
 		for (int j = 0; j < 4; j++) {
 			figure[i][j] = res[j];
 		}
+		res = nullptr;
 	}
 }
 
@@ -105,6 +110,7 @@ void Figure::translate(float direction[]) {
 		for (int j = 0; j < 4; j++) {
 			figure[i][j] = res[j];
 		}
+		res = nullptr;
 	}
 }
 
@@ -115,5 +121,6 @@ void Figure::scale(float amount) {
 		for (int j = 0; j < 4; j++) {
 			figure[i][j] = res[j];
 		}
+		res = nullptr;
 	}
 }
