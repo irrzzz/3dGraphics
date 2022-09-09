@@ -57,7 +57,7 @@ void processNormalKeys(unsigned char key, int x, int y) {
 		break;
 	case 'x':
 		xPressed = true;
-
+		break;
 	case 'w':
 		//движение вверх
 		dir[2] = dir[0] = 0;

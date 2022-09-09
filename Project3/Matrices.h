@@ -9,7 +9,7 @@ public:
 	static float translation[4][4];
 	static float scaling[4][4];
 	//матрица перспективной проекции
-	//заменой proj[3][2]
+	//заменой proj[3][2] можно добиться ортогональной
 	static float proj[4][4];
 
 	static float* multiply(float vec[], float matrix[][4]);
