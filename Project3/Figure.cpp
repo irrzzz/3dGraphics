@@ -49,25 +49,26 @@ void Figure::draw() {
 	glBegin(GL_LINE_LOOP);
 	for (int i = 0; i < 17; i++) {
 		projection = Matrices::multiply(figure[i], Matrices::proj);
-		glVertex3f(projection[0], projection[1], projection[2]);
+		glVertex4f(projection[0], projection[1], projection[2], projection[3]);
 	}
 	glEnd();
 	//на плоскости, параллельной XoY
 	glBegin(GL_LINE_LOOP);
 	for (int i = 17; i < 34; i++) {
 		projection = Matrices::multiply(figure[i], Matrices::proj);
-		glVertex3f(projection[0], projection[1], projection[2]);
+		glVertex4f(projection[0], projection[1], projection[2], projection[3]);
 	}
 	glEnd();
 	//соединяем нарисованные плоские З
 	glBegin(GL_LINES);
 	for (int i = 0; i < 17; i++) {
 		projection = Matrices::multiply(figure[i], Matrices::proj);
-		glVertex3f(projection[0], projection[1], projection[2]);
+		glVertex4f(projection[0], projection[1], projection[2], projection[3]);
 		projection = Matrices::multiply(figure[i + 17], Matrices::proj);
-		glVertex3f(projection[0], projection[1], projection[2]);
+		glVertex4f(projection[0], projection[1], projection[2], projection[3]);
 	}
 	glEnd();
+	projection = nullptr;
 }
 
 void Figure::rotateX(float angle) {

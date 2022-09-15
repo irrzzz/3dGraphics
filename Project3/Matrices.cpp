@@ -38,7 +38,7 @@ float Matrices::scaling[4][4] = {
 float Matrices::proj[4][4] = {
 	1, 0, 0,   0,
 	0, 1, 0,   0,
-	0, 0, 0, 0.01,
+	0, 0, 0, 0.004,
 	0, 0, 0,   1
 };
 
